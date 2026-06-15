@@ -91,13 +91,22 @@ To run the bot, you'll need to configure a few sensitive variables. Here's how t
 - **`AUTO_FORWARD_PAIRS`**: Optional multiple rules separated by semicolon, for example `-100111=-100222;@source=@target`.
 - **`AUTO_FORWARD_MODE`**: Optional. `copy` reposts without a forwarded header; `forward` keeps the forwarded header. Default is `copy`.
 - **`AUTO_FORWARD_DELAY`**: Optional delay in seconds between multiple destinations.
+- **`AUTO_FORWARD_SCHEDULE`**: Optional UTC schedule for environment rules. Use `always`, `off`, or `HH:MM-HH:MM`.
+- **`AUTO_FORWARD_TYPES`**: Optional message filter for environment rules. Use `all`, `media`, `text`, or comma-separated media types such as `photo,video,document`.
 
 ### Auto Forward Commands
 
 Owner-only commands:
 
 ```bash
-/autoforward add <source> <destination> [copy|forward]
+/autoforward add <source> <destination> [copy|forward] [schedule=HH:MM-HH:MM] [types=all|media|text|photo,video]
+/autoforward connect <source> <destination>
+/autoforward follow <source>
+/autoforward schedule <source> <destination> <always|off|HH:MM-HH:MM>
+/autoforward filter <source> <destination> <all|media|text|photo,video>
+/autoforward watch [source]
+/autoforward stats [source]
+/autoforward resetstats [source] [destination]
 /autoforward del <source> [destination]
 /autoforward on <source> [destination]
 /autoforward off <source> [destination]
@@ -109,8 +118,12 @@ Examples:
 ```bash
 /autoforward add -1001111111111 -1002222222222
 /autoforward add @sourcechannel @targetchannel forward
-/autoforward add -1001111111111 -1002222222222/45
+/autoforward add -1001111111111 -1002222222222/45 schedule=09:00-18:00 types=media
+/autoforward connect @sourcechannel @targetchannel
+/autoforward watch
 ```
+
+Schedules use UTC time. Add `/TOPIC_ID` to a destination chat ID to post into a topic-enabled group.
 
 **How to get cookies ??** : use mozila firfox if on android or use chrome on desktop and download extension get this cookie or any Netscape Cookies (HTTP Cookies) extractor and use that 
 

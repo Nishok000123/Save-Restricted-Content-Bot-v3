@@ -120,6 +120,16 @@
       "description": "Optional delay in seconds between multiple auto-forward destinations",
       "value": "0",
       "required": false
+    },
+    "AUTO_FORWARD_SCHEDULE": {
+      "description": "Optional UTC schedule for environment auto-forward rules: always, off, or HH:MM-HH:MM",
+      "value": "always",
+      "required": false
+    },
+    "AUTO_FORWARD_TYPES": {
+      "description": "Optional message filter for environment auto-forward rules: all, media, text, or comma-separated media types",
+      "value": "all",
+      "required": false
     }
   },
   "buildpacks": [

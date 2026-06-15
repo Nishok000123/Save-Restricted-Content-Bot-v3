@@ -40,5 +40,7 @@ AUTO_FORWARD_DESTINATION = os.getenv("AUTO_FORWARD_DESTINATION", "") # destinati
 AUTO_FORWARD_PAIRS = os.getenv("AUTO_FORWARD_PAIRS", "") # source=destination pairs separated by semicolon
 AUTO_FORWARD_MODE = os.getenv("AUTO_FORWARD_MODE", "copy") # copy or forward
 AUTO_FORWARD_DELAY = float(os.getenv("AUTO_FORWARD_DELAY", "0")) # optional delay between destinations
+AUTO_FORWARD_SCHEDULE = os.getenv("AUTO_FORWARD_SCHEDULE", "always") # always, off, or HH:MM-HH:MM UTC
+AUTO_FORWARD_TYPES = os.getenv("AUTO_FORWARD_TYPES", "all") # all, media, text, or comma-separated media types
 
 
