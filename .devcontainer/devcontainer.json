@@ -1,0 +1,21 @@
+{
+  "name": "Save Restricted Content Bot",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "containerEnv": {
+    "API_ID": "25879770",
+    "API_HASH": "8ee591892df6e8a1d82179be95e3a580",
+    "BOT_TOKEN": "8984351067:AAEd0gYt7o4xgXV3cXm5JCs1hbPprOBWNSg",
+    "MONGO_DB": "mongodb+srv://Newton:f8fnEOUdmnKmuKKq@cluster0.scwg5n5.mongodb.net/?appName=Cluster0",
+    "OWNER_ID": "5688847060",
+    "LOG_GROUP": "-1004330680055"
+  },
+  "postCreateCommand": "pip3 install -r /workspace/requirements.txt",
+  "postStartCommand": "cd /workspace && python3 main.py",
+  "forwardPorts": [5000],
+  "remoteUser": "root"
+}
