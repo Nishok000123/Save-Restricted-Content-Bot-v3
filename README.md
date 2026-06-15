@@ -52,6 +52,8 @@ Please do start and max fork thanks
   
 ## ⚡ Commands
 
+The bot automatically registers its Telegram command menu on startup. Owners can also run `/set` to refresh the command menu manually.
+
 - **`start`**: 🚀 Start the bot.
 - **`batch`**: 🫠 Extract in bulk.
 - **`login`**: 🔑 Get into the bot.

@@ -8,6 +8,44 @@ from pyrogram.errors import UserNotParticipant
 from pyrogram.types import BotCommand, InlineKeyboardButton, InlineKeyboardMarkup
 from config import LOG_GROUP, OWNER_ID, FORCE_SUB
 
+BOT_COMMANDS = [
+    BotCommand("start", "Start the bot"),
+    BotCommand("help", "Show help and command guide"),
+    BotCommand("batch", "Extract messages in bulk"),
+    BotCommand("single", "Process one Telegram message link"),
+    BotCommand("login", "Login for private channel access"),
+    BotCommand("logout", "Remove your saved login session"),
+    BotCommand("setbot", "Add your custom upload bot"),
+    BotCommand("rembot", "Remove your custom upload bot"),
+    BotCommand("settings", "Personalize upload settings"),
+    BotCommand("autoforward", "Manage auto-forward connections"),
+    BotCommand("dl", "Download videos from supported sites"),
+    BotCommand("adl", "Download audio from supported sites"),
+    BotCommand("status", "Check your plan and login status"),
+    BotCommand("stats", "Show your bot account status"),
+    BotCommand("transfer", "Transfer premium to another user"),
+    BotCommand("add", "Owner: add premium user"),
+    BotCommand("rem", "Owner: remove premium user"),
+    BotCommand("plan", "Show premium plans"),
+    BotCommand("terms", "Show terms and conditions"),
+    BotCommand("cancel", "Cancel login, settings, or batch flow"),
+    BotCommand("stop", "Stop an active batch process"),
+    BotCommand("set", "Owner: refresh command menu"),
+]
+
+
+async def register_bot_commands():
+    await app.set_bot_commands(BOT_COMMANDS)
+    print("Bot commands configured automatically.")
+
+
+async def run_start_plugin():
+    try:
+        await register_bot_commands()
+    except Exception as exc:
+        print(f"Failed to configure bot commands automatically: {exc}")
+
+
 async def subscribe(app, message):
     if FORCE_SUB:
         try:
@@ -30,27 +68,7 @@ async def set(_, message):
         await message.reply("You are not authorized to use this command.")
         return
      
-    await app.set_bot_commands([
-        BotCommand("start", "🚀 Start the bot"),
-        BotCommand("batch", "🫠 Extract in bulk"),
-        BotCommand("login", "🔑 Get into the bot"),
-        BotCommand("setbot", "🧸 Add your bot for handling files"),
-        BotCommand("logout", "🚪 Get out of the bot"),
-        BotCommand("adl", "👻 Download audio from 30+ sites"),
-        BotCommand("dl", "💀 Download videos from 30+ sites"),
-        BotCommand("status", "⟳ Refresh Payment status"),
-        BotCommand("transfer", "💘 Gift premium to others"),
-        BotCommand("add", "➕ Add user to premium"),
-        BotCommand("rem", "➖ Remove from premium"),
-        BotCommand("rembot", "🤨 Remove your custom bot"),
-        BotCommand("settings", "⚙️ Personalize things"),
-        BotCommand("autoforward", "🔁 Manage auto-forward rules"),
-        BotCommand("plan", "🗓️ Check our premium plans"),
-        BotCommand("terms", "🥺 Terms and conditions"),
-        BotCommand("help", "❓ If you're a noob, still!"),
-        BotCommand("cancel", "🚫 Cancel login/batch/settings process"),
-        BotCommand("stop", "🚫 Cancel batch process")
-    ])
+    await register_bot_commands()
  
     await message.reply("✅ Commands configured successfully!")
  
