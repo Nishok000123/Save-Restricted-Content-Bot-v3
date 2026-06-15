@@ -1,3 +1,13 @@
+---
+title: Save Restricted Content Bot V3
+emoji: "🤖"
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 5000
+pinned: false
+---
+
 <h1 align="center">
   Save Restricted Content Bot v3
 </h1>
@@ -37,9 +47,12 @@ Please do start and max fork thanks
 - ~~fast uploader via `SpyLib` using Telethon modules and `mautrix bridge repo`~~ 
 - Directly upload to `topic` in any topic enabled group
 - real time download and uplaod progress, support chats, text , audio, video , video note sticker everything
+- Auto-forward bot mode: copy or forward new messages from configured source chats to destination chats.
 
   
 ## ⚡ Commands
+
+The bot automatically registers its Telegram command menu on startup. Owners can also run `/set` to refresh the command menu manually.
 
 - **`start`**: 🚀 Start the bot.
 - **`batch`**: 🫠 Extract in bulk.
@@ -56,6 +69,7 @@ Please do start and max fork thanks
 - **`rembot`**: remove your custome bot.
 - **`session`**: 🧵 Generate Pyrogramv2 session.
 - **`settings`**: ⚙️ Personalize settings.
+- **`autoforward`**: 🔁 Owner-only auto-forward rule management.
 - **`stats`**: 📊 Get stats of the bot.
 - **`plan`**: 🗓️ Check our premium plans.
 - **`terms`**: 🥺 Terms and conditions.
@@ -74,16 +88,54 @@ To run the bot, you'll need to configure a few sensitive variables. Here's how t
 - **`API_HASH`**: Your API Hash from [telegram.org](https://my.telegram.org/auth).
 - **`BOT_TOKEN`**: Get your bot token from [@BotFather](https://t.me/botfather).
 - **`OWNER_ID`**: Use [@missrose_bot](https://t.me/missrose_bot) to get your user ID by sending `/info`.
-- **`CHANNEL_ID`**: The ID of the channel for forced subscription.
 - **`LOG_GROUP`**: A group or channel where the bot logs messages. Forward a message to [@userinfobot](https://t.me/userinfobot) to get your channel/group ID.
 - **`MONGO_DB`**: A MongoDB URL for storing session data (recommended for security).
   
 ### Additional Configuration Options:
+- **`FORCE_SUB`**: Optional forced-subscription channel ID. Leave blank or unset to disable forced subscription.
 - **`STRING`**: (Optional) Add your **premium account session string** here to allow 4GB file uploads. This is **optional** and can be left empty if not used.
 - **`FREEMIUM_LIMIT`**: Default is `0`. Set this to any value you want to allow free users to extract content. If set to `0`, free users will not have access to any extraction features.
 - **`PREMIUM_LIMIT`**: Default is `500`. This is the batch limit for premium users. You can customize this to allow premium users to process more links/files in one batch.
 - **`YT_COOKIES`**: Yt cookies for downloading yt videos 
 - **`INSTA_COOKIES`**: If you want to enable instagram downloading fill cookiesn
+- **`AUTO_FORWARD_ENABLED`**: Optional. Set to `True` to enable environment-configured auto-forward rules.
+- **`AUTO_FORWARD_SOURCE`** and **`AUTO_FORWARD_DESTINATION`**: Optional single source/destination rule. Values can be chat IDs, `@usernames`, or public `t.me` links.
+- **`AUTO_FORWARD_PAIRS`**: Optional multiple rules separated by semicolon, for example `-100111=-100222;@source=@target`.
+- **`AUTO_FORWARD_MODE`**: Optional. `copy` reposts without a forwarded header; `forward` keeps the forwarded header. Default is `copy`.
+- **`AUTO_FORWARD_DELAY`**: Optional delay in seconds between multiple destinations.
+- **`AUTO_FORWARD_SCHEDULE`**: Optional UTC schedule for environment rules. Use `always`, `off`, or `HH:MM-HH:MM`.
+- **`AUTO_FORWARD_TYPES`**: Optional message filter for environment rules. Use `all`, `media`, `text`, or comma-separated media types such as `photo,video,document`.
+
+### Auto Forward Commands
+
+Owner-only commands:
+
+```bash
+/autoforward add <source> <destination> [copy|forward] [schedule=HH:MM-HH:MM] [types=all|media|text|photo,video]
+/autoforward connect <source> <destination>
+/autoforward follow <source>
+/autoforward schedule <source> <destination> <always|off|HH:MM-HH:MM>
+/autoforward filter <source> <destination> <all|media|text|photo,video>
+/autoforward watch [source]
+/autoforward stats [source]
+/autoforward resetstats [source] [destination]
+/autoforward del <source> [destination]
+/autoforward on <source> [destination]
+/autoforward off <source> [destination]
+/autoforward list
+```
+
+Examples:
+
+```bash
+/autoforward add -1001111111111 -1002222222222
+/autoforward add @sourcechannel @targetchannel forward
+/autoforward add -1001111111111 -1002222222222/45 schedule=09:00-18:00 types=media
+/autoforward connect @sourcechannel @targetchannel
+/autoforward watch
+```
+
+Schedules use UTC time. Add `/TOPIC_ID` to a destination chat ID to post into a topic-enabled group.
 
 **How to get cookies ??** : use mozila firfox if on android or use chrome on desktop and download extension get this cookie or any Netscape Cookies (HTTP Cookies) extractor and use that 
 

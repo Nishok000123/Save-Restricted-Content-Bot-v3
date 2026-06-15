@@ -26,6 +26,7 @@ users_collection = db["users"]
 premium_users_collection = db["premium_users"]
 statistics_collection = db["statistics"]
 codedb = db["redeem_code"]
+auto_forward_rules_collection = db["auto_forward_rules"]
 
 # ------- < start > Session Encoder don't change -------
 

@@ -42,9 +42,9 @@
       "required": false
     },
     "FORCE_SUB": {
-      "description": "Channel ID (with -100 prefix) for forced subscription",
-      "value": "-10012345567",
-      "required": true
+      "description": "Optional channel ID (with -100 prefix) for forced subscription. Leave blank to disable.",
+      "value": "",
+      "required": false
     },
     "LOG_GROUP": {
       "description": "Log channel/group ID (with -100 prefix) where the bot will send logs",
@@ -90,6 +90,46 @@
       "description": "type join channel link which comes on /start",
       "value": "https://t.me/team_spy_pro",
       "required": true
+    },
+    "AUTO_FORWARD_ENABLED": {
+      "description": "Set True to enable auto-forward rules configured with environment variables",
+      "value": "False",
+      "required": false
+    },
+    "AUTO_FORWARD_SOURCE": {
+      "description": "Optional source chat ID, @username, or t.me link for a single auto-forward rule",
+      "value": "",
+      "required": false
+    },
+    "AUTO_FORWARD_DESTINATION": {
+      "description": "Optional destination chat ID, @username, or t.me link for a single auto-forward rule",
+      "value": "",
+      "required": false
+    },
+    "AUTO_FORWARD_PAIRS": {
+      "description": "Optional semicolon-separated source=destination auto-forward pairs",
+      "value": "",
+      "required": false
+    },
+    "AUTO_FORWARD_MODE": {
+      "description": "Auto-forward mode: copy or forward",
+      "value": "copy",
+      "required": false
+    },
+    "AUTO_FORWARD_DELAY": {
+      "description": "Optional delay in seconds between multiple auto-forward destinations",
+      "value": "0",
+      "required": false
+    },
+    "AUTO_FORWARD_SCHEDULE": {
+      "description": "Optional UTC schedule for environment auto-forward rules: always, off, or HH:MM-HH:MM",
+      "value": "always",
+      "required": false
+    },
+    "AUTO_FORWARD_TYPES": {
+      "description": "Optional message filter for environment auto-forward rules: all, media, text, or comma-separated media types",
+      "value": "all",
+      "required": false
     }
   },
   "buildpacks": [

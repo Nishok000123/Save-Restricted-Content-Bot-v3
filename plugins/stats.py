@@ -13,7 +13,7 @@ logging.basicConfig(format=
 logger = logging.getLogger('teamspy')
 
 
-@bot_client.on(events.NewMessage(pattern='/status'))
+@bot_client.on(events.NewMessage(pattern=r'^/(status|stats)(?:\s|$)'))
 async def status_handler(event):
     if not await is_private_chat(event):
         await event.respond("This command can only be used in private chats for security reasons.")
