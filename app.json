@@ -42,9 +42,9 @@
       "required": false
     },
     "FORCE_SUB": {
-      "description": "Channel ID (with -100 prefix) for forced subscription",
-      "value": "-10012345567",
-      "required": true
+      "description": "Optional channel ID (with -100 prefix) for forced subscription. Leave blank to disable.",
+      "value": "",
+      "required": false
     },
     "LOG_GROUP": {
       "description": "Log channel/group ID (with -100 prefix) where the bot will send logs",
