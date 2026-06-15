@@ -1,3 +1,13 @@
+---
+title: Save Restricted Content Bot V3
+emoji: "🤖"
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 5000
+pinned: false
+---
+
 <h1 align="center">
   Save Restricted Content Bot v3
 </h1>
