@@ -90,6 +90,36 @@
       "description": "type join channel link which comes on /start",
       "value": "https://t.me/team_spy_pro",
       "required": true
+    },
+    "AUTO_FORWARD_ENABLED": {
+      "description": "Set True to enable auto-forward rules configured with environment variables",
+      "value": "False",
+      "required": false
+    },
+    "AUTO_FORWARD_SOURCE": {
+      "description": "Optional source chat ID, @username, or t.me link for a single auto-forward rule",
+      "value": "",
+      "required": false
+    },
+    "AUTO_FORWARD_DESTINATION": {
+      "description": "Optional destination chat ID, @username, or t.me link for a single auto-forward rule",
+      "value": "",
+      "required": false
+    },
+    "AUTO_FORWARD_PAIRS": {
+      "description": "Optional semicolon-separated source=destination auto-forward pairs",
+      "value": "",
+      "required": false
+    },
+    "AUTO_FORWARD_MODE": {
+      "description": "Auto-forward mode: copy or forward",
+      "value": "copy",
+      "required": false
+    },
+    "AUTO_FORWARD_DELAY": {
+      "description": "Optional delay in seconds between multiple auto-forward destinations",
+      "value": "0",
+      "required": false
     }
   },
   "buildpacks": [

@@ -44,6 +44,7 @@ async def set(_, message):
         BotCommand("rem", "➖ Remove from premium"),
         BotCommand("rembot", "🤨 Remove your custom bot"),
         BotCommand("settings", "⚙️ Personalize things"),
+        BotCommand("autoforward", "🔁 Manage auto-forward rules"),
         BotCommand("plan", "🗓️ Check our premium plans"),
         BotCommand("terms", "🥺 Terms and conditions"),
         BotCommand("help", "❓ If you're a noob, still!"),
@@ -90,13 +91,15 @@ help_pages = [
         "> Test the server speed (not available in v3)\n\n"
         "14. **/terms**\n"
         "> Terms and conditions\n\n"
-        "15. **/cancel**\n"
+        "15. **/autoforward**\n"
+        "> Owner only: automatically copy or forward messages from source chats to destination chats\n\n"
+        "16. **/cancel**\n"
         "> Cancel ongoing batch process\n\n"
-        "16. **/myplan**\n"
+        "17. **/myplan**\n"
         "> Get details about your plans\n\n"
-        "17. **/session**\n"
+        "18. **/session**\n"
         "> Generate Pyrogram V2 session\n\n"
-        "18. **/settings**\n"
+        "19. **/settings**\n"
         "> 1. SETCHATID : To directly upload in channel or group or user's dm use it with -100[chatID]\n"
         "> 2. SETRENAME : To add custom rename tag or username of your channels\n"
         "> 3. CAPTION : To add custom caption\n"

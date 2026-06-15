@@ -37,6 +37,7 @@ Please do start and max fork thanks
 - ~~fast uploader via `SpyLib` using Telethon modules and `mautrix bridge repo`~~ 
 - Directly upload to `topic` in any topic enabled group
 - real time download and uplaod progress, support chats, text , audio, video , video note sticker everything
+- Auto-forward bot mode: copy or forward new messages from configured source chats to destination chats.
 
   
 ## ⚡ Commands
@@ -56,6 +57,7 @@ Please do start and max fork thanks
 - **`rembot`**: remove your custome bot.
 - **`session`**: 🧵 Generate Pyrogramv2 session.
 - **`settings`**: ⚙️ Personalize settings.
+- **`autoforward`**: 🔁 Owner-only auto-forward rule management.
 - **`stats`**: 📊 Get stats of the bot.
 - **`plan`**: 🗓️ Check our premium plans.
 - **`terms`**: 🥺 Terms and conditions.
@@ -84,6 +86,31 @@ To run the bot, you'll need to configure a few sensitive variables. Here's how t
 - **`PREMIUM_LIMIT`**: Default is `500`. This is the batch limit for premium users. You can customize this to allow premium users to process more links/files in one batch.
 - **`YT_COOKIES`**: Yt cookies for downloading yt videos 
 - **`INSTA_COOKIES`**: If you want to enable instagram downloading fill cookiesn
+- **`AUTO_FORWARD_ENABLED`**: Optional. Set to `True` to enable environment-configured auto-forward rules.
+- **`AUTO_FORWARD_SOURCE`** and **`AUTO_FORWARD_DESTINATION`**: Optional single source/destination rule. Values can be chat IDs, `@usernames`, or public `t.me` links.
+- **`AUTO_FORWARD_PAIRS`**: Optional multiple rules separated by semicolon, for example `-100111=-100222;@source=@target`.
+- **`AUTO_FORWARD_MODE`**: Optional. `copy` reposts without a forwarded header; `forward` keeps the forwarded header. Default is `copy`.
+- **`AUTO_FORWARD_DELAY`**: Optional delay in seconds between multiple destinations.
+
+### Auto Forward Commands
+
+Owner-only commands:
+
+```bash
+/autoforward add <source> <destination> [copy|forward]
+/autoforward del <source> [destination]
+/autoforward on <source> [destination]
+/autoforward off <source> [destination]
+/autoforward list
+```
+
+Examples:
+
+```bash
+/autoforward add -1001111111111 -1002222222222
+/autoforward add @sourcechannel @targetchannel forward
+/autoforward add -1001111111111 -1002222222222/45
+```
 
 **How to get cookies ??** : use mozila firfox if on android or use chrome on desktop and download extension get this cookie or any Netscape Cookies (HTTP Cookies) extractor and use that 
 

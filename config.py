@@ -34,5 +34,11 @@ FREEMIUM_LIMIT = int(os.getenv("FREEMIUM_LIMIT", "10000"))
 PREMIUM_LIMIT = int(os.getenv("PREMIUM_LIMIT", "10000"))
 JOIN_LINK = os.getenv("JOIN_LINK", "https://t.me/team_spy_pro") # this link for start command message
 ADMIN_CONTACT = os.getenv("ADMIN_CONTACT", "https://t.me/username_of_admin")
+AUTO_FORWARD_ENABLED = os.getenv("AUTO_FORWARD_ENABLED", "False").lower() in ("true", "1", "yes", "on")
+AUTO_FORWARD_SOURCE = os.getenv("AUTO_FORWARD_SOURCE", "") # source chat id or username
+AUTO_FORWARD_DESTINATION = os.getenv("AUTO_FORWARD_DESTINATION", "") # destination chat id or username
+AUTO_FORWARD_PAIRS = os.getenv("AUTO_FORWARD_PAIRS", "") # source=destination pairs separated by semicolon
+AUTO_FORWARD_MODE = os.getenv("AUTO_FORWARD_MODE", "copy") # copy or forward
+AUTO_FORWARD_DELAY = float(os.getenv("AUTO_FORWARD_DELAY", "0")) # optional delay between destinations
 
 
